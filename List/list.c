@@ -32,7 +32,7 @@ int sizeList(List l) {
 void displayList(List l) {
 	if (isEmpty(l))
 	{
-		printf("Empty List");
+		printf("Nothing to display. The list is empty.");
 		return;
 	}
 
@@ -55,9 +55,64 @@ void displayList(List l) {
 	}
 }
 /*=====================*/
+/**Adds an element at the back of the list. LIFO*/
+List pushBack(List lst, int e) {
+	
+	ListElement* le;
+	le = malloc(sizeof(*le));
 
+	if (le == NULL)
+	{
+		fprintf(stderr, "Error: memory allocation.\n");
+		exit(EXIT_FAILURE);
+	}
+
+	le->value = e;
+	le->next = NULL;
+
+	if (isEmpty(lst))
+	{
+		return le; //This becomes the first element in the list.
+	}
+
+	//in case list isn't empty
+	//tmp is used to iterate through lst 
+	//without modifying it.
+
+	ListElement* tmp;
+	tmp = lst;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = le;
+
+	return lst;
+
+}
 /*=====================*/
+List pushFront(List lst, int e) {
+	ListElement* le = malloc(sizeof(ListElement));
+	if (le == NULL)
+	{
+		fprintf(stderr, "Error: memory allocation.\n");
+		exit(EXIT_FAILURE);
+	}
+	le->value = e;
+	
+	if (isEmpty(lst))
+	{
+		le->next = NULL;
+		return le; //This becomes the first element in the list.
+	}
+	else
+	{
+		le->next = lst;
+	}
 
+	return le;
+	
+}
 /*=====================*/
 
 /*=====================*/

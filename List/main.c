@@ -11,5 +11,6 @@ int main(void) {
 		printf("List contains elements");
 	}
 
+	displayList(myList);
 	return 0;
 }
