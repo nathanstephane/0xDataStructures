@@ -114,7 +114,33 @@ List pushFront(List lst, int e) {
 	
 }
 /*=====================*/
+List popBack(List lst) {
+	if (isEmpty(lst)) { return NULL; }
 
+	if (lst->next == NULL) 
+	{
+		free(lst);
+		lst = NULL;
+		return	NULL;
+	}
+
+	ListElement* tmp = lst;
+	ListElement* beforeLast = lst;
+
+	while (tmp->next != NULL)
+	{
+		beforeLast = tmp;
+		tmp = tmp->next;
+	}
+
+	beforeLast->next = NULL;
+	free(tmp);
+	tmp = NULL;
+
+	return lst;
+	
+
+}
 /*=====================*/
 
 /*=====================*/
