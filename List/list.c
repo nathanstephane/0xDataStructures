@@ -20,7 +20,7 @@ Bool isEmpty(List l) {
 int sizeList(List l) {
 	int size = 0;
 
-	if (!isEmpty(l))
+	if (l != NULL)
 	{
 		++size;
 		l = l->next;
@@ -32,14 +32,15 @@ int sizeList(List l) {
 void displayList(List l) {
 	if (isEmpty(l))
 	{
-		printf("Nothing to display. The list is empty.");
+		printf("Nothing to display. The list is empty.\n");
 		return;
 	}
-
+	
+	int beforelast = 1;
 	while (l != NULL)
 	{
-		int beforelast=1;
-		if (beforelast == sizeList(l) - 1 || beforelast == 1)
+		
+		if (sizeList(l) == 1 || sizeList(l) == sizeList(l) -1)
 		{
 			printf("[%d]", l->value);
 
@@ -53,6 +54,7 @@ void displayList(List l) {
 		l = l->next;
 
 	}
+	printf("size of list: %d \n\n", sizeList(l));
 }
 /*=====================*/
 /**Adds an element at the back of the list. LIFO*/
@@ -142,5 +144,37 @@ List popBack(List lst) {
 
 }
 /*=====================*/
+List popFront(List lst) {
+	if (isEmpty(lst)) { return NULL; }
 
+	//In case there is only one element in the list.
+	if (lst->next == NULL)
+	{
+		free(lst);
+		lst = NULL;
+		return	NULL;
+	}
+
+	//not safe : List newList = lst->next; 
+	/*safer:  */ List newList = malloc(sizeof(ListElement));
+	if (!newList)
+	{
+		fprintf(stderr, "Error: memory allocation.\n");
+		exit(EXIT_FAILURE);
+	}
+
+	newList = lst->next;
+	free(lst);
+	lst = NULL;
+
+	return newList;
+
+
+
+
+}
+/*=====================*/
+/*=====================*/
+/*=====================*/
+/*=====================*/
 /*=====================*/

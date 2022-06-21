@@ -29,4 +29,6 @@ List pushFront(List lst, int e);
 
 List popBack(List lst);
 
+List popFront(List lst);
+
 #endif // !LIST_H
