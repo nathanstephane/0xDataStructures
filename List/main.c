@@ -10,6 +10,7 @@ int main(void) {
 	myList = pushBack(myList, -4); //[24] [30] [-4]
 	
 	displayList(myList); //[24] [30] [-4]
+	
 
 	myList = popFront(myList); // [30] [-4]
 	myList = popFront(myList); // [-4]

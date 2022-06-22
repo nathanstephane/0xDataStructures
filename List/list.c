@@ -20,7 +20,7 @@ Bool isEmpty(List l) {
 int sizeList(List l) {
 	int size = 0;
 
-	if (l != NULL)
+	if (!isEmpty(l))
 	{
 		++size;
 		l = l->next;
@@ -40,21 +40,23 @@ void displayList(List l) {
 	while (l != NULL)
 	{
 		
-		if (sizeList(l) == 1 || sizeList(l) == sizeList(l) -1)
+		if (l->next == NULL)
 		{
 			printf("[%d]", l->value);
 
 		}
 		else
 		{
+			
 			printf("[%d]->", l->value);
+			
 		}
 		
 		beforelast++;
 		l = l->next;
 
 	}
-	printf("size of list: %d \n\n", sizeList(l));
+	printf("\n\n");
 }
 /*=====================*/
 /**Adds an element at the back of the list. LIFO*/
