@@ -171,11 +171,20 @@ List popFront(List lst) {
 
 	return newList;
 
-
-
-
 }
 /*=====================*/
+
+List clearList(List lst) {
+	if (isEmpty(lst))
+	{
+		return NULL;
+	}
+
+	while (lst != NULL)
+	{
+		lst = popFront(lst);
+	}
+}
 /*=====================*/
 /*=====================*/
 /*=====================*/

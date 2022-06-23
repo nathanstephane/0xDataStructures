@@ -31,4 +31,6 @@ List popBack(List lst);
 
 List popFront(List lst);
 
+List clearList(List lst);
+
 #endif // !LIST_H
